@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Over</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 1340px;
+            height: 740px;
+            margin: auto;
+            background-color: #07121c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.4;
+        }
+
+        .logo {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: center;
+            gap: 90px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .team {
+            width: 428px;
+            height: 340px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            padding-top: 35px;
+            box-sizing: border-box;
+        }
+
+        .ind {
+            background-color: #0875e1;
+        }
+
+        .pak {
+            background-color: #39b900;
+        }
+
+        .team-name {
+            font-size: 80px;
+            font-weight: bold;
+            margin: 0 0 40px;
+        }
+
+        .runs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .run {
+            width: 46px;
+            height: 46px;
+            background-color: white;
+            color: black;
+            border-radius: 50%;
+            font-size: 30px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .total {
+            font-size: 45px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 55px;
+            margin-top: 75px;
+            position: relative;
+        }
+
+        .button {
+            width: 95px;
+            height: 95px;
+            border: 5px solid white;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 65px;
+            box-sizing: border-box;
+        }
+
+        .edit {
+            background-color: orange;
+        }
+
+        .reset {
+            background-color: #ed2525;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+      
+        <img class="bg" src="stadium.png" alt="">
+
+        
+        <div class="logo">
+            <img src="logo.png" alt="Super Over">
+        </div>
+
+        <div class="scoreboard">
+
+            <div class="team ind">
+
+                <p class="team-name">IND</p>
+
+                <div class="runs">
+                    <div class="run">4</div>
+                    <div class="run">3</div>
+                    <div class="run">2</div>
+                    <div class="run">6</div>
+                    <div class="run">6</div>
+                    <div class="run">6</div>
+                </div>
+
+                <div class="total">27/0</div>
+
+            </div>
+
+            
+            <div class="team pak">
+
+                <p class="team-name">PAK</p>
+
+                <div class="runs">
+                    <div class="run">2</div>
+                    <div class="run">4</div>
+                    <div class="run">0</div>
+                    <div class="run">3</div>
+                    <div class="run">1</div>
+                    <div class="run">4</div>
+                </div>
+
+                <div class="total">14/0</div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="buttons">
+
+            <div class="button edit">
+                <img src="edit.png" alt="Edit">
+            </div>
+
+            <div class="button reset">
+                <img src="reset.png" alt="Reset">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

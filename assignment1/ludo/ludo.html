@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ludo Board</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+        }
+
+        .board {
+            width: 840px;
+            height: 840px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(15, 56px);
+            grid-template-rows: repeat(15, 56px);
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+
+        .home {
+            grid-column: span 6;
+            grid-row: span 6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red {
+            background-color: #f12f23;
+        }
+
+        .green {
+            background-color: #347f20;
+        }
+
+        .blue {
+            background-color: #0719f5;
+        }
+
+        .yellow {
+            background-color: #ffff45;
+        }
+
+        .inside {
+            width: 66%;
+            height: 66%;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 55px;
+            height: 55px;
+            border: 6px solid;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+
+        .red .circle {
+            border-color: #f12f23;
+        }
+
+        .green .circle {
+            border-color: #347f20;
+        }
+
+        .blue .circle {
+            border-color: #0719f5;
+        }
+
+        .yellow .circle {
+            border-color: #ffff45;
+        }
+
+
+        .path {
+            position: relative;
+            background-color: white;
+            background-image:
+                linear-gradient(to right, black 1px, transparent 1px),
+                linear-gradient(to bottom, black 1px, transparent 1px);
+            background-size: 56px 56px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .top-path {
+            grid-column: 7 / 10;
+            grid-row: 1 / 7;
+        }
+
+        .bottom-path {
+            grid-column: 7 / 10;
+            grid-row: 10 / 16;
+        }
+
+        .left-path {
+            grid-column: 1 / 7;
+            grid-row: 7 / 10;
+        }
+
+        .right-path {
+            grid-column: 10 / 16;
+            grid-row: 7 / 10;
+        }
+
+
+        .lane {
+            position: absolute;
+        }
+
+        .vertical {
+            width: 56px;
+            height: 100%;
+            left: 56px;
+        }
+
+        .horizontal {
+            width: 100%;
+            height: 56px;
+            top: 56px;
+        }
+
+        .green-lane {
+            background-color: #347f20;
+        }
+
+        .blue-lane {
+            background-color: #0719f5;
+        }
+
+        .red-lane {
+            background-color: #f12f23;
+        }
+
+        .yellow-lane {
+            background-color: #ffff45;
+        }
+
+        /* STARS */
+
+        .star {
+            position: absolute;
+            font-size: 38px;
+            color: black;
+            line-height: 56px;
+            text-align: center;
+            width: 56px;
+            height: 56px;
+        }
+
+        .top-star1 {
+            top: 56px;
+            left: 112px;
+        }
+
+        .top-star2 {
+            top: 112px;
+            left: 0;
+        }
+
+        .bottom-star1 {
+            top: 168px;
+            left: 112px;
+        }
+
+        .bottom-star2 {
+            top: 224px;
+            left: 0;
+        }
+
+        .left-star1 {
+            top: 0;
+            left: 56px;
+        }
+
+        .left-star2 {
+            top: 112px;
+            left: 112px;
+        }
+
+        .right-star1 {
+            top: 0;
+            left: 168px;
+        }
+
+        .right-star2 {
+            top: 112px;
+            left: 224px;
+        }
+
+        /* CENTER */
+
+        .center {
+            grid-column: 7 / 10;
+            grid-row: 7 / 10;
+            position: relative;
+            background-color: white;
+        }
+
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .top-triangle {
+            top: 0;
+            left: 0;
+            border-top: 84px solid #347f20;
+            border-left: 84px solid transparent;
+            border-right: 84px solid transparent;
+        }
+
+        .bottom-triangle {
+            bottom: 0;
+            left: 0;
+            border-bottom: 84px solid #0719f5;
+            border-left: 84px solid transparent;
+            border-right: 84px solid transparent;
+        }
+
+        .left-triangle {
+            top: 0;
+            left: 0;
+            border-left: 84px solid #f12f23;
+            border-top: 84px solid transparent;
+            border-bottom: 84px solid transparent;
+        }
+
+        .right-triangle {
+            top: 0;
+            right: 0;
+            border-right: 84px solid #ffff45;
+            border-top: 84px solid transparent;
+            border-bottom: 84px solid transparent;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="board">
+
+
+        <div class="home red">
+            <div class="inside">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+
+        <div class="path top-path">
+            <div class="lane vertical green-lane"></div>
+
+            <div class="star top-star1">★</div>
+            <div class="star top-star2">★</div>
+        </div>
+
+
+        <div class="home green">
+            <div class="inside">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+
+        <div class="path left-path">
+            <div class="lane horizontal red-lane"></div>
+
+            <div class="star left-star1">★</div>
+            <div class="star left-star2">★</div>
+        </div>
+
+
+        <div class="center">
+            <div class="triangle top-triangle"></div>
+            <div class="triangle bottom-triangle"></div>
+            <div class="triangle left-triangle"></div>
+            <div class="triangle right-triangle"></div>
+        </div>
+
+
+        <div class="path right-path">
+            <div class="lane horizontal yellow-lane"></div>
+
+            <div class="star right-star1">★</div>
+            <div class="star right-star2">★</div>
+        </div>
+
+
+        <div class="home blue">
+            <div class="inside">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+
+        <div class="path bottom-path">
+            <div class="lane vertical blue-lane"></div>
+
+            <div class="star bottom-star1">★</div>
+            <div class="star bottom-star2">★</div>
+        </div>
+
+
+        <div class="home yellow">
+            <div class="inside">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
